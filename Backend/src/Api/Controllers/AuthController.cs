@@ -23,7 +23,7 @@ public class AuthController(IMediator mediator) : ControllerBase
             new RegisterUserCommand { Username = request.Username, Password = request.Password });
 
         if (result is null)
-            return BadRequest(ELocAuthController.UserExists.ToString());
+            return BadRequest(ELocAuthController.UserAlreadyExists.ToString());
 
         return Ok(result.User);
     }
