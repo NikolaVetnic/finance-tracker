@@ -1,0 +1,16 @@
+name: finance-tracker
+
+services:
+  core.db:
+    container_name: core.db
+    image: postgres
+
+  core.api:
+    container_name: core.api
+    image: ${DOCKER_REGISTRY-}coreapi
+    build:
+      context: ../
+      dockerfile: src/Api/Dockerfile
+
+volumes:
+  ft_core:
