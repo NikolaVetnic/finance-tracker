@@ -1,16 +1,16 @@
 name: finance-tracker
 
 services:
-  core.db:
-    container_name: core.db
+  finance-tracker.db:
+    container_name: finance-tracker.db
     image: postgres
 
-  core.api:
-    container_name: core.api
-    image: ${DOCKER_REGISTRY-}coreapi
+  finance-tracker.api:
+    container_name: finance-tracker.api
+    image: ${DOCKER_REGISTRY-}financetrackerapi
     build:
       context: ../
       dockerfile: src/Api/Dockerfile
 
 volumes:
-  ft_core:
+  pgsql:

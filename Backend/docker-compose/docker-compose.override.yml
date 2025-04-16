@@ -1,23 +1,23 @@
 services:
-  core.db:
+  finance-tracker.db:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=CoreDb
+      - POSTGRES_DB=FinanceTrackerDb
     restart: always
     ports:
       - "25432:5432"
     volumes:
-      - ft_core:/var/lib/postgresql/data
+      - pgsql:/var/lib/postgresql/data
 
-  core.api:
+  finance-tracker.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_URLS=http://+:8080
-      - ConnectionStrings__DefaultConnection=Host=core.db;Port=5432;Database=CoreDb;Username=postgres;Password=postgres;Include Error Detail=true
+      - ConnectionStrings__DefaultConnection=Host=finance-tracker.db;Port=5432;Database=FinanceTrackerDb;Username=postgres;Password=postgres;Include Error Detail=true
     ports:
       - "16000:8080"
       - "16050:8081"
     depends_on:
-      - core.db
+      - finance-tracker.db
