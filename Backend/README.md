@@ -2,6 +2,23 @@
 
 Backend repo of the FinanceTracker project.
 
+## Application Settings
+
+The following configuration values have to be set prior to running the app:
+
+```json
+{
+  "AppSettings": {
+    "Token": "", // 64 characters or longer
+    "Issuer": "",
+    "Audience": ""
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": ""
+  }
+}
+```
+
 ## Ports
 
 The component port numbers are as follows:
@@ -25,3 +42,11 @@ The basic flow is as follows:
 - Services only contain methods used by more than one Handler.
 - Database contexts can only be accessed by Repositories.
 - On returning the value in the controller method the Result class is "unpacked".
+
+## Migrations
+
+Migrations are to be added using the dotnet ef migrations tool while positioned in the Infrastructure layer of the project:
+
+```shell
+    dotnet ef migrations add Init -o ./Migrations --startup-project ../Api/Api.csproj
+```
