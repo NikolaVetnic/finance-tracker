@@ -1,6 +1,6 @@
 namespace Application;
 
-public interface ApplicationProjectReference
+public interface IApplicationProjectReference
 {
     
 }

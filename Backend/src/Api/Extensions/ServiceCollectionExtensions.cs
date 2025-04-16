@@ -54,7 +54,7 @@ public static class ServiceCollectionExtensions
             });
 
         // Register application layer services
-        services.AddServices(typeof(ApplicationProjectReference).Assembly);
+        services.AddServices(typeof(IApplicationProjectReference).Assembly);
 
         // Register OpenAPI if needed
         services.AddOpenApi();
@@ -66,7 +66,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IMediator, Mediator>();
         services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
         
-        services.AddHandlers(typeof(ApplicationProjectReference).Assembly);
+        services.AddHandlers(typeof(IApplicationProjectReference).Assembly);
 
         return services;
     }
