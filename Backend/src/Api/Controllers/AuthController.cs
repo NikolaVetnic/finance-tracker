@@ -23,7 +23,7 @@ public class AuthController(IMediator mediator) : ControllerBase
             new RegisterUserCommand { Username = request.Username, Password = request.Password });
 
         if (result is null)
-            return BadRequest(ELocAuthController.UserAlreadyExists.ToString());
+            return BadRequest(ELocAuthController.UserExists.ToString());
 
         return Ok(result.User);
     }
@@ -49,7 +49,7 @@ public class AuthController(IMediator mediator) : ControllerBase
     {
         if (!UserId.TryParse(request.UserId, out var userId))
             return Unauthorized(ELocAuthController.InvalidUserId.ToString());
-        
+
         var result = await mediator.SendAsync<RefreshTokenCommand, RefreshTokenResult>(
             new RefreshTokenCommand { UserId = userId!, RefreshToken = request.RefreshToken });
 

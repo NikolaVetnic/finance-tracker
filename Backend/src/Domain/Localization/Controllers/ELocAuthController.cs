@@ -2,7 +2,7 @@ namespace Domain.Localization.Controllers;
 
 public enum ELocAuthController
 {
-    UserAlreadyExists,
+    UserExists,
     InvalidCredentials,
     InvalidRefreshToken,
     UserIdNotFound, 
