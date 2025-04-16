@@ -50,3 +50,17 @@ Migrations are to be added using the dotnet ef migrations tool while positioned 
 ```shell
     dotnet ef migrations add Init -o ./Migrations --startup-project ../Api/Api.csproj
 ```
+
+## Naming Policy
+
+Icons are used to indicate the commit type:
+
+- _chore_ : 🧹 `:broom`
+- _docs_ : 📖 `:open_book`
+- _feat_ : ✨ `:sparkles`
+- _fix_ : 🛠 `:hammer_and_wrench`
+- _PR in Draft status_ : 📝 `:memo`
+- _refactor_ : 🔄 `:counterclockwise_arrows_button`
+- _various_ : 🧩 `:puzzle_piece`
+
+The usual phrasing with a verb in imperative mode at the beginning is encouraged.
