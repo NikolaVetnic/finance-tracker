@@ -1,5 +1,3 @@
-using Domain.Entities.Users.ValueObjects;
-
 namespace Domain.Entities.Users.Models;
 
 public class RefreshTokenRequestDto
