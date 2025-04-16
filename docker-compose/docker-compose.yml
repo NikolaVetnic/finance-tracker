@@ -1,0 +1,22 @@
+name: finance-tracker
+
+services:
+  api:
+    container_name: ft.api
+    image: ${DOCKER_REGISTRY-}finance-tracker_api
+    build:
+      context: ../Backend/
+      dockerfile: src/Api/Dockerfile
+
+  frontend:
+    container_name: ft.frontend
+    image: ${DOCKER_REGISTRY-}finance-tracker_frontend
+    build:
+      context: ../Frontend/src
+
+  database:
+    container_name: ft.database
+    image: postgres
+
+volumes:
+  pgsql:

@@ -19,17 +19,6 @@ The following configuration values have to be set prior to running the app:
 }
 ```
 
-## Ports
-
-The component port numbers are as follows:
-
-| Component | Local Env         | Docker Env        | Docker Inside   |
-| --------- | ----------------- | ----------------- | --------------- |
-| core.api  | `15000` / `15050` | `16000` / `16060` | `8080` / `8081` |
-| core.db   |                   | `25432`           | `5432`          |
-
-ASP.NET Core ports are listed as HTTP / HTTPS for running application.
-
 ## Architecture Notes
 
 The basic flow is as follows:
@@ -50,17 +39,3 @@ Migrations are to be added using the dotnet ef migrations tool while positioned 
 ```shell
     dotnet ef migrations add Init -o ./Migrations --startup-project ../Api/Api.csproj
 ```
-
-## Naming Policy
-
-Icons are used to indicate the commit type:
-
-- _chore_ : 🧹 `:broom`
-- _docs_ : 📖 `:open_book`
-- _feat_ : ✨ `:sparkles`
-- _fix_ : 🛠 `:hammer_and_wrench`
-- _PR in Draft status_ : 📝 `:memo`
-- _refactor_ : 🔄 `:counterclockwise_arrows_button`
-- _various_ : 🧩 `:puzzle_piece`
-
-The usual phrasing with a verb in imperative mode at the beginning is encouraged.

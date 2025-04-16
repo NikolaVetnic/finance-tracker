@@ -1,0 +1,29 @@
+services:
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=ft.database;Port=5432;Database=ft.database;Username=postgres;Password=postgres;Include Error Detail=true
+    ports:
+      - "16000:8080"
+      - "16050:8081"
+    depends_on:
+      - database
+
+  frontend:
+    ports:
+      - "14000:13000"
+    depends_on:
+      - api
+
+  database:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ft.database
+    restart: always
+    ports:
+      - "25432:5432"
+    volumes:
+      - pgsql:/var/lib/postgresql/data
